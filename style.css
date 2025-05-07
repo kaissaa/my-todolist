@@ -1,0 +1,169 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+:root {
+    --gradient-base: linear-gradient(130deg, #3A59D1, #B5FCCD);
+    --container: #fff;  
+    --text-color: #000;
+    --border-color: #000;
+    --image-url: url('images/icons8-trash-24.png');
+    --base-variant: #F1F0E8;
+    --svg-color: #000;
+    --button-color: #1DCD9F;
+}
+
+.darkmode {
+    --gradient-base: linear-gradient(130deg, #2C2C2C, #522546);
+    --container: #3C3D37;  
+    --text-color: #fff;
+    --border-color: #fff;
+    --image-url: url('images/icons-light.png');
+    --base-variant: #5E686D;
+    --button-color: #697565;
+}
+
+.container {
+    width: 100%;
+    min-height: 100vh;
+    background: var(--gradient-base);
+    padding: 10px;
+}
+.todo-content {
+    background: var(--container);
+    width: 100%;
+    max-width: 540px;
+    margin: 70px auto 20px;
+    padding: 40px 30px 70px;
+    border-radius: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 12px 24px rgba(0, 0, 0, 0.1);
+}
+
+#theme-switch {
+    height: 50px;
+    width: 50px;
+    padding: 0;
+    border-radius: 50%;
+    border-style: none;
+    background-color: var(--base-variant);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+}
+
+#theme-switch svg {
+    fill: var(--svg-color);
+}
+
+#theme-switch svg:first-child {
+    display: none;
+}
+
+.darkmode #theme-switch svg:last-child {
+    display: none;
+}
+
+.darkmode #theme-switch svg:first-child {
+    display: block;
+}
+
+.todo-content h2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 40px;
+    font-size:30px;
+    color: var(--text-color);
+}
+
+.inputan {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #E1EEBC;
+    border-radius: 30px;
+}
+
+#input-box {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 10px;
+}
+
+button.add {
+    border: none;
+    outline: none;
+    padding: 15px 40px;
+    background: var(--button-color);
+    cursor: pointer;
+    border-radius: 30px;
+}
+
+.list-container {
+    background: var(--container);
+    width: 100%;
+    max-width: 540px;
+    margin: 40px auto 20px;
+    padding: 20px 20px 30px;
+    border-radius: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 12px 24px rgba(0, 0, 0, 0.1);
+}
+
+ul li {
+    list-style: none;
+    font-size: 17px;
+    padding: 12px 8px 12px 20px;
+    user-select: none;
+    cursor: pointer;
+    position: relative;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-color);
+}
+
+ul li.checked {
+    color: var(--text-color);
+    text-decoration: line-through;
+}
+
+ul li .trash {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    background-image: var(--image-url);
+    background-size: contain;
+    cursor: pointer;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+ul li .trash:hover {
+    transform: translateY(-50%) scale(1.2);
+    opacity: 0.7;
+}
+
+ul li .edit {
+    position: absolute;
+    right: 50px; /* Geser ke kiri dari trash */
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 16px;
+    color: var(--text-color);
+    cursor: pointer;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+ul li .edit:hover {
+    transform: translateY(-50%) scale(1.2);
+    opacity: 0.7;
+}
